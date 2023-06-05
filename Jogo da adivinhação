@@ -41,7 +41,7 @@ func main() {
 			tentativa := inputPalpite()
 			comparar = comparando(numSecreto, tentativa)
 			tentativas++
-			fmt.Println(numSecreto, tentativa)
+			fmt.Println(tentativa)
 		}
 		fmt.Println("Número de tentativas:", tentativas)
 		fmt.Println("Deseja jogar novamente? Digite 's' para sim e 'n' para não: ")
