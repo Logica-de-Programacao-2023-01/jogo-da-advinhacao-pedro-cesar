@@ -1,0 +1,53 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func numeroSecreto() int { // Função para gerar um numero aleatorio
+	num := rand.Intn(101) // // Gera um número aleatório entre 0 e 100
+	return num
+}
+func inputPalpite() int { // Função para pegar o palpite do jogador
+	var palpite int
+	fmt.Print("Digite o seu palpite: ")
+	_, err := fmt.Scan(&palpite) // em caso de o numero scaneado for diferente de um numero nesse caso gerando um erro
+	if err != nil {
+		fmt.Println("Porfavor coloque um número inteiro.")
+	} else {
+		fmt.Println("Seu palpite:", palpite)
+	}
+	return palpite
+}
+func comparando(numSecreto, tentativa int) bool { // Função para dizer se o palpite e o numero secreto são maiores ou menores
+	if tentativa > numSecreto {
+		fmt.Println("Seu palpite é maior que o número secreto.")
+		return false
+	} else if tentativa < numSecreto {
+		fmt.Println("Seu palpite é menor que o número secreto.")
+		return false
+	} else {
+		fmt.Println("PARABÉNS! Você acertou o número secreto.")
+		return true
+	}
+}
+func main() {
+	var jogarNovamente string
+	for { // loop para para tentar acertar o número
+		numSecreto := numeroSecreto()       // var do número secreto
+		tentativas := 0                     //número de tentativas que sera add futuramente
+		for comparar := false; !comparar; { //o loop mantera enquanto a func comparar for falsa
+			tentativa := inputPalpite()
+			comparar = comparando(numSecreto, tentativa)
+			tentativas++
+			fmt.Println(numSecreto, tentativa)
+		}
+		fmt.Println("Número de tentativas:", tentativas)
+		fmt.Println("Deseja jogar novamente? Digite 's' para sim e 'n' para não: ")
+		fmt.Scan(&jogarNovamente)
+		if jogarNovamente != "s" && jogarNovamente != "S" {
+			break
+		}
+	}
+}
