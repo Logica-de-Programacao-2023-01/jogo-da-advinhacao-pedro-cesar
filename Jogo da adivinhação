@@ -12,7 +12,7 @@ func numeroSecreto() int { // Função para gerar um numero aleatorio
 func inputPalpite() int { // Função para pegar o palpite do jogador
 	var palpite int
 	fmt.Print("Digite o seu palpite: ")
-	_, err := fmt.Scan(&palpite) // em caso de o numero scaneado for diferente de um numero nesse caso gerando um erro
+	_, err := fmt.Scan(&palpite) // em caso de o numero scaneado for diferente de um numero nesse caso gerando um erro "scan, err"
 	if err != nil {
 		fmt.Println("Porfavor coloque um número inteiro.")
 	} else {
